@@ -26,7 +26,7 @@ session_start();
     }
     if ($correct) {
       // $passwd = password_hash($_SESSION['passwd'],PASSWORD_DEFAULT);
-      $passwd = md5($passwd,FALSE);
+      $passwd = md5($passwd,FALSE);//$passwd = password_hash($_SESSION['passwd'],PASSWORD_ARGON2ID); uzyj tego
       //brakuje inserta
     }
   }
