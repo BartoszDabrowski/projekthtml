@@ -1,0 +1,33 @@
+CREATE TABLE IF NOT EXISTS `uzytkownicy` (
+    `id` int(10) NOT NULL AUTO_INCREMENT,
+    `login` varchar(255) NOT NULL,
+    `haslo` varchar(255) NOT NULL,
+    `email` varchar(255) NOT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+
+CREATE TABLE IF NOT EXISTS `products` (
+    `id` int(10) NOT NULL AUTO_INCREMENT,
+    `nazwa` varchar(255) NOT NULL,
+    `cena` int NOT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+
+INSERT INTO `products` (`id`, `nazwa`,`cena`)
+    VALUES (1,'wiadreko', 10);
+INSERT INTO `products` (`id`, `nazwa`,`cena`)
+    VALUES (2,'wiatrak', 20);
+INSERT INTO `products` (`id`, `nazwa`,`cena`)
+    VALUES (3,'szpadel', 30);
+INSERT INTO `products` (`id`, `nazwa`,`cena`)
+    VALUES (4,'dywan', 40);
+INSERT INTO `products` (`id`, `nazwa`,`cena`)
+    VALUES (5,'lodówka', 50);
+INSERT INTO `products` (`id`, `nazwa`,`cena`)
+    VALUES (6,'mebloœcianka', 60);
+INSERT INTO `products` (`id`, `nazwa`,`cena`)
+    VALUES (7,'telewizor', 70);
+INSERT INTO `products` (`id`, `nazwa`,`cena`)
+    VALUES (8,'o³ówek', 80);
+INSERT INTO `products` (`id`, `nazwa`,`cena`)
+    VALUES (9,'krzes³o', 90);
