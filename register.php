@@ -37,8 +37,8 @@ $connect = @new mysqli("localhost","root","","projekt");
           {
               if ($passwd == $rpasswd) // sprawdzamy czy hasła takie same
 {
-                //$passwd = password_hash($_POST['passwd'],PASSWORD_ARGON2ID);
-                $passwd = password_hash($_POST['passwd'],PASSWORD_DEFAULT);
+                $passwd = password_hash($_POST['passwd'],PASSWORD_ARGON2ID);
+              //  $passwd = password_hash($_POST['passwd'],PASSWORD_DEFAULT);
 
                   mysqli_query($connect,"INSERT INTO `uzytkownicy` (`login`, `haslo`, `email`)
                       VALUES ('".$login."', '".$passwd."', '".$email."');");
@@ -79,8 +79,6 @@ $connect = @new mysqli("localhost","root","","projekt");
         </div>
         <div class="forms1">
         </div>
-
-         <!-- <form action="cartshow.php" method="post"><input type="submit" name="poka" value="Pokaz koszyk"></form>; -->
          <a href="cartshow.php">
            <div class="cart">
               <i class="fas fa-cart-arrow-down"></i> <?php

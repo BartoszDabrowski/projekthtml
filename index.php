@@ -18,13 +18,13 @@
           <div class="logo1">
             GO
           </div>
-          </a>
+
         </div>
+      </a>
         <div class="forms">
           <?php session_start();
           if (isset($_SESSION['logged'])) {
-          echo "witaj:",$_SESSION['user'];
-          echo " <a href='logout.php'>Wyloguj</a>";
+          echo "witaj: ",$_SESSION['user'];
 
         }else {
           //echo " <a href='index.php'>Zaloguj</a>";
@@ -32,17 +32,7 @@
           Login: <input type='text' name='login' id='login'>
           Hasło: <input type='password' name='password' id='passwd'>
           <input type='submit' value='Zaloguj się'>
-
-
-        </form>
-        ";
-
-            // if (isset($_SESSION['error']))
-            // {
-            //   $error = $_SESSION['error'];
-            //   echo "<script type='text/javascript'>alert('$error');</script>";//echo $_SESSION['error'];
-            // }
-            // unset($_SESSION['error']);//bledy
+        </form>";
         }
 
            ?>
@@ -53,12 +43,14 @@
           echo "<form action='register.php' method='post'>
           <input type='submit' value='Zarejestruj się'>
           </form>";
-          }
+        }else {
+          echo " <a href='logout.php'>Wyloguj</a>";
+        }
           ?>
         </div>
 
          <!-- <form action="cartshow.php" method="post"><input type="submit" name="poka" value="Pokaz koszyk"></form>; -->
-         <a href="cartshow.php">
+         <a href="cartshow.php" >
         <div class="cart">
            <i class="fas fa-cart-arrow-down"></i> <?php
            if(!isset($_SESSION['cart'])){
@@ -71,7 +63,9 @@
       </header>
       <menu>
         <ul>
-          <li>Pole menu 1</li>
+          <a href="scheme.php">
+            <li>plik schematu</li>
+          </a>
           <li>Pole menu 2</li>
           <li>Pole menu 3</li>
           <li>Pole menu 4</li>

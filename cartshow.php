@@ -17,12 +17,39 @@
           <div class="logo1">
             GO
           </div>
-          </a>
+
+        </div>
+        </a>
+        <div class="forms">
+          <?php session_start();
+          if (isset($_SESSION['logged'])) {
+          echo "witaj: ",$_SESSION['user'];
+        }else {
+          echo "<form action='connect.php' method='post'>
+          Login: <input type='text' name='login' id='login'>
+          Hasło: <input type='password' name='password' id='passwd'>
+          <input type='submit' value='Zaloguj się'>
+          </form>";
+        }
+
+           ?>
+        </div>
+        <div class="forms1">
+          <?php
+          if (!isset($_SESSION['logged'])) {
+          echo "<form action='register.php' method='post'>
+          <input type='submit' value='Zarejestruj się'>
+          </form>";
+        }else {
+            echo " <a href='logout.php'>Wyloguj</a>";
+        }
+          ?>
         </div>
 
          <a href="cartshow.php">
         <div class="cart">
            <i class="fas fa-cart-arrow-down"></i> <?php
+           //session_start();
            if(!isset($_SESSION['cart'])){
            $_SESSION['cart']=0;}
            echo $_SESSION['cart'];
@@ -42,7 +69,6 @@
       </menu>
       <div class="content">
         <?php
-            session_start();
             $connect = @new mysqli("localhost","root","","projekt");
             $sql= "SELECT * FROM products where id=9";
             if ($result = @$connect->query($sql)) {
@@ -118,43 +144,87 @@
                                                          }
             if(isset($_SESSION['item9']))
             {
-              echo $nazwa9," w ilości ", $_SESSION['item9'], " cena ", $cena9*$_SESSION['item9'], "zł<br>";
+              echo "<form action='cartclear9.php' method='post'>",
+              $nazwa9," w ilości ", $_SESSION['item9'], " cena ", $cena9*$_SESSION['item9'], 'zł',
+              "<input type='submit' value='X'class='remove'>
+              </form><br>";
             }
             if(isset($_SESSION['item8']))
             {
-              echo $nazwa8," w ilości ", $_SESSION['item8'], " cena ", $cena8*$_SESSION['item8'], "zł<br>";
+              echo "<form action='cartclear8.php' method='post'>",
+              $nazwa8," w ilości ", $_SESSION['item8'], " cena ", $cena8*$_SESSION['item8'], 'zł',
+              "<input type='submit' value='X'class='remove'>
+              </form><br>";
             }
             if(isset($_SESSION['item7']))
             {
-              echo $nazwa7," w ilości ", $_SESSION['item7'], " cena ", $cena7*$_SESSION['item7'], "zł<br>";
+              echo "<form action='cartclear7.php' method='post'>",
+              $nazwa7," w ilości ", $_SESSION['item7'], " cena ", $cena7*$_SESSION['item7'], 'zł',
+              "<input type='submit' value='X'class='remove'>
+              </form><br>";
             }
             if(isset($_SESSION['item6']))
             {
-              echo $nazwa6," w ilości ", $_SESSION['item6'], " cena ", $cena6*$_SESSION['item6'], "zł<br>";
+              echo "<form action='cartclear6.php' method='post'>",
+              $nazwa6," w ilości ", $_SESSION['item6'], " cena ", $cena6*$_SESSION['item6'], 'zł',
+              "<input type='submit' value='X'class='remove'>
+              </form><br>";
             }
             if(isset($_SESSION['item5']))
             {
-              echo $nazwa5," w ilości ", $_SESSION['item5'], " cena ", $cena5*$_SESSION['item5'], "zł<br>";
+              echo "<form action='cartclear5.php' method='post'>",
+              $nazwa5," w ilości ", $_SESSION['item5'], " cena ", $cena5*$_SESSION['item5'], 'zł',
+              "<input type='submit' value='X'class='remove'>
+              </form><br>";
             }
             if(isset($_SESSION['item4']))
             {
-              echo $nazwa4," w ilości ", $_SESSION['item4'], " cena ", $cena4*$_SESSION['item4'], "zł<br>";
+              echo "<form action='cartclear4.php' method='post'>",
+              $nazwa4," w ilości ", $_SESSION['item4'], " cena ", $cena4*$_SESSION['item4'], 'zł',
+              "<input type='submit' value='X'class='remove'>
+              </form><br>";
             }
             if(isset($_SESSION['item3']))
             {
-              echo $nazwa3," w ilości ", $_SESSION['item3'], " cena ", $cena3*$_SESSION['item3'], "zł<br>";
+              echo "<form action='cartclear3.php' method='post'>",
+              $nazwa3," w ilości ", $_SESSION['item3'], " cena ", $cena3*$_SESSION['item3'], 'zł',
+              "<input type='submit' value='X'class='remove'>
+              </form><br>";
             }
             if(isset($_SESSION['item2']))
             {
-              echo $nazwa2," w ilości ", $_SESSION['item2'], " cena ", $cena2*$_SESSION['item2'], "zł<br>";
+              echo "<form action='cartclear2.php' method='post'>",
+              $nazwa2," w ilości ", $_SESSION['item2'], " cena ", $cena2*$_SESSION['item2'],'zł',
+              "<input type='submit' value='X'class='remove'>
+              </form><br>";
             }
             if(isset($_SESSION['item1']))
             {
-              echo $nazwa1," w ilości ", $_SESSION['item1'], " cena ", $cena1*$_SESSION['item1'], "zł<br>";
+              echo "<form action='cartclear1.php' method='post'>",
+              $nazwa1," w ilości ", $_SESSION['item1'], " cena ", $cena1*$_SESSION['item1'], 'zł',
+              "<input type='submit' value='X'class='remove'>
+              </form><br>";
             }
-            echo "Zawartosc koszyka ", $_SESSION['cart'], " zł";
-            //header('Location: index1.php');
+            echo "Zawartosc koszyka ", $_SESSION['cart'], " zł<br>";
+            echo "<form action='cartclear.php' method='post'>
+            <input class='clear' type='submit' value='Wyczyść koszyk'>
+            </form>";
+            if(isset($_SESSION['logged'])){
+              if(isset($_SESSION['item9'])||isset($_SESSION['item8'])||isset($_SESSION['item7'])||isset($_SESSION['item6'])||isset($_SESSION['item5'])||isset($_SESSION['item4'])||isset($_SESSION['item3'])||isset($_SESSION['item2'])||isset($_SESSION['item1'])){
+              echo "<form action='send.php' method='post'>
+              <input class='clear' type='submit' value='Złóż zamówienie'>
+              </form>";
+            }
+          }
         ?>
+        <?php
+        if (isset($_SESSION['error']))
+        {
+          $error = $_SESSION['error'];
+          echo "<script type='text/javascript'>alert('$error');</script>";//echo $_SESSION['error'];
+        unset($_SESSION['error']);
+        }
+         ?>
       </div>
       <footer>
           <i class="fas fa-envelope"></i> kontakt@zadanie.pl
