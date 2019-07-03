@@ -61,21 +61,28 @@
       </header>
       <menu>
         <ul>
-          <a href="#">
+          <a href="scheme.php">
           <li>Zmień hasło</li></a>
-          <a href="scheme2.php">
+          <a href="#">
           <li>Twoje zamówienia</li></a>
         </ul>
       </menu>
-      <div class="content-s">
+      <div class="content">
+        <div class="forms">
           <?php
-        echo "<form action='change.php' method='post'>
-        Stare hasło: <br><input class='reset' type='password' name='opasswd'><br>
-        Nowe hasło: <br><input class='reset' type='password' name='passwd'><br>
-        Powtórz nowe hasło: <br><input class='reset' type='password' name='rpasswd'><br>
-        <input type='submit' value='Zmień hasło'>
-      </form>";
+        $connect = @new mysqli("localhost","root","","projekt");
+        $login=$_SESSION['user'];
+        $licz=1;
+        echo "Historia zamówień: <br>";
+        $sql=mysqli_query($connect,"SELECT products.nazwa,zamowienia.ilosc from products inner join zamowienia on zamowienia.przedmiot_id = products.id WHERE zamowienia.kupiec = '".$login."';");
+        if(mysqli_num_rows($sql) > 0) {
+          while($r = mysqli_fetch_assoc($sql)) {
+            echo $licz,". Przedmiot: ", $r['nazwa'], " w ilości ", $r['ilosc'], "<br>";
+            $licz++;
+          }
+        }
         ?>
+      </div>
       </div>
       <footer>
         <!-- <section class="contact"> -->

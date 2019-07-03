@@ -10,5 +10,5 @@ unset($_SESSION['item4']);
 unset($_SESSION['item3']);
 unset($_SESSION['item2']);
 unset($_SESSION['item1']);
-header('Location: cartshow.php')
+header('Location: ../cartshow.php')
 ?>

@@ -11,5 +11,5 @@ session_start();
       }
       $_SESSION['cart']+=$_SESSION['cena']*$ilosc;
       $_SESSION['item9']+=$ilosc;
-      header('Location: index.php');
+      header('Location: ../index.php');
 ?>

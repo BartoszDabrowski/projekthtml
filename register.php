@@ -92,11 +92,8 @@ $connect = @new mysqli("localhost","root","","projekt");
       </header>
       <menu>
         <ul>
-          <li>Pole menu 1</li>
-          <li>Pole menu 2</li>
-          <li>Pole menu 3</li>
-          <li>Pole menu 4</li>
-          <li>Pole menu 5</li>
+          <li>Zmień hasło</li>
+          <li>Twoje zamówienia</li>
         </ul>
       </menu>
       <div class="content">

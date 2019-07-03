@@ -14,5 +14,5 @@ if($_SESSION['item5']==0)
 {
   unset($_SESSION['item5']);
 }
-header('Location: cartshow.php')
+header('Location: ../cartshow.php')
 ?>

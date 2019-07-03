@@ -28,7 +28,7 @@
 
         }else {
           //echo " <a href='index.php'>Zaloguj</a>";
-          echo "<form action='connect.php' method='post'>
+          echo "<form action='connecting/connect.php' method='post'>
           Login: <input type='text' name='login' id='login'>
           Hasło: <input type='password' name='password' id='passwd'>
           <input type='submit' value='Zaloguj się'>
@@ -62,14 +62,20 @@
         </a>
       </header>
       <menu>
-        <ul>
-          <a href="scheme.php">
-            <li>plik schematu</li>
+        <ul><?php
+          if (isset($_SESSION['logged'])) {
+          echo "<a href='scheme.php'>";
+        }else {
+        }
+          ?>
+            <li>Zmień hasło</li>
           </a>
-          <li>Pole menu 2</li>
-          <li>Pole menu 3</li>
-          <li>Pole menu 4</li>
-          <li>Pole menu 5</li>
+          <?php
+            if (isset($_SESSION['logged'])) {
+            echo "<a href='scheme2.php'>";
+          }
+            ?>
+          <li>Twoje zamówienia</li></a>
         </ul>
       </menu>
       <div class="content">
@@ -78,55 +84,55 @@
           <img src="img/placeholder.jpg" alt="">
           <a href="#">cursus nunc congue</a>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in sollicitudin.<br>
-          <form action="cart.php" method="post">10 zł<input type="text" name="1lorem" value="1"><input type="submit" value="Do koszyka" name="lorem1"></form>
+          <form action="carts/cart.php" method="post">10 zł<input type="text" name="1lorem" value="1"><input type="submit" value="Do koszyka" name="lorem1"></form>
         </section>
         <section class="item">
           <img src="img/placeholder.jpg" alt="">
           <a href="#">cursus nunc congue</a>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in sollicitudin.
-          <form action="cart1.php" method="post">20 zł<input type="text" name="2lorem" value="1"><input type="submit" value="Do koszyka" name="lorem2"></form>
+          <form action="carts/cart1.php" method="post">20 zł<input type="text" name="2lorem" value="1"><input type="submit" value="Do koszyka" name="lorem2"></form>
         </section>
         <section class="item">
           <img src="img/placeholder.jpg" alt="">
           <a href="#">cursus nunc congue</a>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in sollicitudin.
-          <form action="cart2.php" method="post">30 zł<input type="text" name="3lorem" value="1"><input type="submit" value="Do koszyka" name="lorem3"></form>
+          <form action="carts/cart2.php" method="post">30 zł<input type="text" name="3lorem" value="1"><input type="submit" value="Do koszyka" name="lorem3"></form>
         </section>
         <section class="item">
           <img src="img/placeholder.jpg" alt="">
           <a href="#">cursus nunc congue</a>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in sollicitudin.
-          <form action="cart3.php" method="post">40 zł<input type="text" name="4lorem" value="1"><input type="submit" value="Do koszyka" name="lorem4"></form>
+          <form action="carts/cart3.php" method="post">40 zł<input type="text" name="4lorem" value="1"><input type="submit" value="Do koszyka" name="lorem4"></form>
         </section>
         <section class="item">
           <img src="img/placeholder.jpg" alt="">
           <a href="#">cursus nunc congue</a>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in sollicitudin.
-          <form action="cart4.php" method="post">50 zł<input type="text" name="5lorem" value="1"><input type="submit" value="Do koszyka" name="lorem5"></form>
+          <form action="carts/cart4.php" method="post">50 zł<input type="text" name="5lorem" value="1"><input type="submit" value="Do koszyka" name="lorem5"></form>
         </section>
         <section class="item">
           <img src="img/placeholder.jpg" alt="">
           <a href="#">cursus nunc congue</a>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in sollicitudin.
-          <form action="cart5.php" method="post">60 zł<input type="text" name="6lorem" value="1"><input type="submit" value="Do koszyka" name="lorem6"></form>
+          <form action="carts/cart5.php" method="post">60 zł<input type="text" name="6lorem" value="1"><input type="submit" value="Do koszyka" name="lorem6"></form>
         </section>
         <section class="item">
           <img src="img/placeholder.jpg" alt="">
           <a href="#">cursus nunc congue</a>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in sollicitudin.
-          <form action="cart6.php" method="post">70 zł<input type="text" name="7lorem" value="1"><input type="submit" value="Do koszyka" name="lorem7"></form>
+          <form action="carts/cart6.php" method="post">70 zł<input type="text" name="7lorem" value="1"><input type="submit" value="Do koszyka" name="lorem7"></form>
         </section>
         <section class="item">
           <img src="img/placeholder.jpg" alt="">
           <a href="#">cursus nunc congue</a>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in sollicitudin.
-          <form action="cart7.php" method="post">80 zł<input type="text" name="8lorem" value="1"><input type="submit" value="Do koszyka" name="lorem8"></form>
+          <form action="carts/cart7.php" method="post">80 zł<input type="text" name="8lorem" value="1"><input type="submit" value="Do koszyka" name="lorem8"></form>
         </section>
         <section class="item">
           <img src="img/placeholder.jpg" alt="">
           <a href="#">cursus nunc congue</a>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in sollicitudin.
-          <form action="cart8.php" method="post">90 zł<input type="text" name="9lorem" value="1"><input type="submit" value="Do koszyka" name="lorem9"></form>
+          <form action="carts/cart8.php" method="post">90 zł<input type="text" name="9lorem" value="1"><input type="submit" value="Do koszyka" name="lorem9"></form>
         </section>
 
       </div>

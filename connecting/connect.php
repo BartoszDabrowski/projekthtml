@@ -18,14 +18,14 @@
           $_SESSION['id'] = $rekord['id'];
         }else{
             $_SESSION['error'] = "Nieprawidłowy login lub haslo";
-            header('Location:index.php');
+            header('Location:../index.php');
         }
 
            //$rekord->close();
-          header('Location: index.php');
+          header('Location: ../index.php');
         }else {
             $_SESSION['error'] = "Nieprawidłowy login lub haslo";
-            header('Location:index.php');
+            header('Location:../index.php');
 
         }
       }

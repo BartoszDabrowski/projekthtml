@@ -1,7 +1,7 @@
 <?php
 session_start();
 $connect = @new mysqli("localhost","root","","projekt");
-$sql= "SELECT * FROM products where id=8";
+$sql= "SELECT * FROM products where id=1";
 if ($result = @$connect->query($sql)) {
        if ($result->num_rows) {
          $rekord = $result->fetch_assoc();
@@ -9,10 +9,10 @@ if ($result = @$connect->query($sql)) {
        }
      }
 $_SESSION['cart']-=$_SESSION['cena'];
-$_SESSION['item8']-=1;
-if($_SESSION['item8']==0)
+$_SESSION['item1']-=1;
+if($_SESSION['item1']==0)
 {
-  unset($_SESSION['item8']);
+  unset($_SESSION['item1']);
 }
-header('Location: cartshow.php')
+header('Location: ../cartshow.php')
 ?>
