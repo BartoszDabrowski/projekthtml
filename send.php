@@ -46,5 +46,5 @@ mysqli_query($connect,"INSERT INTO `zamowienia` (`kupiec`, `przedmiot_id`, `ilos
                 mysqli_query($connect,"INSERT INTO `zamowienia` (`kupiec`, `przedmiot_id`, `ilosc`)
                     VALUES ('".$_SESSION['user']."', '1', '".$_SESSION['item1']."');");
                   }
-  header('Location: cartclear.php')
+  header('Location: clears/cartclear.php')
 ?>
